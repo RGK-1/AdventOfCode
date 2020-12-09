@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="Day1.vb" />
     <Compile Include="Day2.vb" />
+    <Compile Include="Day3.vb" />
     <Compile Include="Module1.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
