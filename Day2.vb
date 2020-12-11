@@ -15,15 +15,16 @@ Module Day2
             Dim k As Integer = 0
             Dim l As Integer = 0
             Dim m As Integer = 0
+            Dim cntpw As Integer = 0
 
             Line = sr.ReadLine()
 
             While Line <> Nothing
 
                 'Console.WriteLine(Line)
-                Line = sr.ReadLine
-                Array1.Add(Line)
 
+                Array1.Add(Line)
+                Line = sr.ReadLine
                 'Console.WriteLine(Array1(i))
 
 
@@ -36,40 +37,42 @@ Module Day2
                 End If
 
 
-                'Console.WriteLine(i)
 
                 Array2 = i.Split(": ")
-                'Console.WriteLine(Array2(0))
+
 
                 Array3 = Array2(0).Split(" ")
-                'Array3 = Array2(1).Split(" ")
 
-                'Console.WriteLine(Array3(0))
 
                 letter1(0) = (Array3(1))
-                'Console.WriteLine(letter1(0))
-                'k = k + 1
+
                 NumberNoSplit(0) = Array3(0)
 
                 NumberSplit = NumberNoSplit(0).Split("-")
-                ' l = l + 1
+
                 Dim Number1 As Integer = NumberSplit(0)
                 Dim Number2 As Integer = NumberSplit(1)
                 pw(0) = Array2(1)
-                'Console.WriteLine(Number1)
-                'Console.WriteLine(Number2)
 
 
-                'm = m + 1
+                'Number1 = Number1 - 1
+                'Number2 = Number2 - 1
                 Dim Count As Integer = 0
-                Count = CountCharacter(pw(0), letter1(0))
-                Console.WriteLine(Count)
-                If Count > Number1 And Count < Number2 Then
-                    Console.WriteLine()
+                'Count = CountCharacter(pw(0), letter1(0))
+                Dim ch1 As Char = pw(0).Chars(Number1)
+                Dim ch2 As Char = pw(0).Chars(Number2)
+
+
+                'Console.WriteLine(pw(0))
+                If ch1 = letter1(0) Xor ch2 = letter1(0) Then
+                    cntpw = cntpw + 1
+                    Console.WriteLine(pw(0))
+
+
                 End If
             Next
 
-
+            Console.WriteLine(cntpw)
 
 
 
@@ -77,10 +80,6 @@ Module Day2
 
 
 
-
-
-            'Console.WriteLine("Hello split")
-            'Console.WriteLine(Array2(2))
             Console.ReadLine()
 
         End Using
