@@ -10,7 +10,7 @@ Module Day2
             Dim Array3() As String
             Dim letter1(0) As String
             Dim NumberNoSplit(0) As String
-            Dim NumberSplit() As Integer
+            Dim NumberSplit() As String
             Dim pw(0) As String
             Dim k As Integer = 0
             Dim l As Integer = 0
@@ -47,14 +47,26 @@ Module Day2
                 'Console.WriteLine(Array3(0))
 
                 letter1(0) = (Array3(1))
-                Console.WriteLine(letter1(k))
+                'Console.WriteLine(letter1(0))
                 'k = k + 1
                 NumberNoSplit(0) = Array3(0)
-                NumberSplit = CInt(NumberNoSplit(l).Split("-"))
-                ' l = l + 1
-                pw(m) = Array2(1)
-                'm = m + 1
 
+                NumberSplit = NumberNoSplit(0).Split("-")
+                ' l = l + 1
+                Dim Number1 As Integer = NumberSplit(0)
+                Dim Number2 As Integer = NumberSplit(1)
+                pw(0) = Array2(1)
+                'Console.WriteLine(Number1)
+                'Console.WriteLine(Number2)
+
+
+                'm = m + 1
+                Dim Count As Integer = 0
+                Count = CountCharacter(pw(0), letter1(0))
+                Console.WriteLine(Count)
+                If Count > Number1 And Count < Number2 Then
+                    Console.WriteLine()
+                End If
             Next
 
 
@@ -75,5 +87,14 @@ Module Day2
 
     End Sub
 
+    Public Function CountCharacter(ByVal value As String, ByVal ch As Char) As Integer
+        Dim cnt As Integer = 0
+        For Each c As Char In value
+            If c = ch Then
+                cnt += 1
+            End If
+        Next
+        Return cnt
+    End Function
 
 End Module
